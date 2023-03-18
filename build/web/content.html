@@ -1,0 +1,187 @@
+<!--<!DOCTYPE html>
+
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="songList"> 
+        <audio controls>
+            <source src="FetchMusic?songId=3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        </div>
+    </body>
+    <script>
+        window.onload = function() {
+        const songListDiv = document.getElementById("songList");
+
+        // Fetch the songs from the GetAllMusic servlet
+        fetch("GetMusicContent")
+          .then(response => response.json())
+          .then(songs => {
+            // Loop through the songs and create a div for each one
+            songs.forEach(song => {
+              const songDiv = document.createElement("div");
+
+              // Add the song's details to the div
+              songDiv.innerHTML = `
+                <h2>${song.song_name}</h2>
+                <p>Type: ${song.song_type}</p>
+                <audio controls>
+                    <source src="FetchMusic?songId=${song.song_id}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+              `
+
+              // Add the song div to the song list div
+              songListDiv.appendChild(songDiv);
+            });
+          })
+          .catch(error => {
+            console.error("Error fetching songs:", error);
+          });}
+    </script>
+</html>-->
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>Music App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="songList">
+        <audio controls>
+            <source src="FetchMusic?songId=3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const songListDiv = document.getElementById("songList");
+
+            // Fetch the songs from the GetAllMusic servlet
+            fetch("GetMusicContent")
+                .then(response => response.json())
+                .then(songs => {
+                    // Loop through the songs and create a div for each one
+                    songs.forEach(song => {
+                        const songDiv = document.createElement("div");
+
+                        // Add the song's details to the div
+                        
+                        songDiv.innerHTML = `
+                            <h2>${song.song_name}</h2>
+                            <p>Type: ${song.song_type}</p>
+                            <audio controls>
+                                <source src="FetchMusic?songId=${song.song_id}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            
+                                <form method="post" action="UploadFavoriteServlet">
+                                    <input type="hidden" name="songId" value="${song.song_id}">
+                                    <button type="submit">Add to Favorites</button>
+                                </form>
+                                <form method="post" action="DeleteFavoriteServlet">
+                                    <input type="hidden" name="songId" value="${song.song_id}">
+                                    <button type="submit">Dislike</button>
+                                </form>
+                               
+                           
+                              `
+                        // Add the song div to the song list div
+                        songListDiv.appendChild(songDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching songs:", error);
+                });
+        };
+        fetch("LikeOrDislikeServlet")
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+    </script>
+</body>
+</html>-->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    #songList {
+        display: flex;
+        flex-basis: 3;
+        flex-wrap: wrap;
+    }
+    
+</style>
+</head>
+<body>
+    <div id="songList">
+    </div>
+
+    <script>
+        window.onload = function() {
+            const songListDiv = document.getElementById("songList");
+
+            // Fetch the songs from the GetAllMusic servlet
+            fetch("GetMusicContent")
+                .then(response => response.json())
+                .then(songs => {
+                    // Loop through the songs and create a div for each one
+                    songs.forEach(song => {
+                        const songDiv = document.createElement("div");
+
+                        // Add the song's details to the div
+                        let is_there = false;
+                        fetch("LikeOrDislikeServlet?songId="+song.song_id).then(response=>response.json()).then(data=> {is_there = 
+                        
+                        songDiv.innerHTML = `
+                        <div class="card" style="padding:10px;width:21rem;margin:10px">
+                        
+                            <h5 class="card-title">${song.song_name}</h5>
+                            <p class="card-text">${song.song_type}</p>
+                            <audio controls>
+                                <source src="FetchMusic?songId=${song.song_id}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <br>
+                            <form method="post" action="${data[0].is_there ? 'DeleteFavoriteServlet' : 'UploadFavoriteServlet'}">
+                                <input type="hidden" name="songId" value="${song.song_id}">
+                                ${
+                                  !data[0].is_there
+                                    ? '<button type="submit">Add to Favorites</button>'
+                                    : '<button type="submit">Dislike</button>'
+                                }
+                            </form>
+                        </div>
+                              `});
+                        // Add the song div to the song list div
+                        songListDiv.appendChild(songDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching songs:", error);
+                });
+        };
+
+
+    </script>
+</body>
+</html>
