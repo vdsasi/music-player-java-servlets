@@ -33,6 +33,7 @@ public class SignupServlet extends HttpServlet {
         } catch( Exception e ) {
             
         }
+response.sendRedirect("index.html");
     }
 
 }
