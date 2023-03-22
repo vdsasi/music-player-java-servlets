@@ -3,16 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/web/index.html</file>
+            <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/src/java/DeleteFavoriteServlet.java</file>
+            <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/src/java/FetchMusic.java</file>
             <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/src/java/LoginServlet.java</file>
+            <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/src/java/LogoutServlet.java</file>
             <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/src/java/MainPageServlet.java</file>
             <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/src/java/FavoritePageServlet.java</file>
             <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/web/upload.html</file>
+            <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/src/java/GetMusicContent.java</file>
             <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/src/java/LikeOrDislikeServlet.java</file>
-            <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/web/Navbar.html</file>
             <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/web/signup.html</file>
+            <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/web/index.html</file>
+            <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/src/java/SignupServlet.java</file>
+            <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/src/java/UploadFavoriteServlet.java</file>
             <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/src/java/MusicUpload.java</file>
-            <file>file:/C:/Users/vdsas/OneDrive/Documents/NetBeansProjects/WebApplication5/web/content.html</file>
         </group>
     </open-files>
 </project-private>
